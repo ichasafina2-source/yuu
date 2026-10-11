@@ -1,0 +1,617 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, Yu Xia! 💗</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+  --pink: #ff8fca;
+  --purple: #bda2ff;
+  --dark: #10091c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--dark);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+#intro {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background:
+    radial-gradient(circle, #382044 0%, #10091c 65%);
+  transition: opacity 1s, visibility 1s;
+}
+
+#intro.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.ring {
+  position: absolute;
+  width: 230px;
+  height: 230px;
+  border: 2px solid #ff8fca;
+  border-radius: 50%;
+  box-shadow: 0 0 25px #ff4bb8,
+              inset 0 0 25px #ff4bb8;
+  animation: pulse 2s infinite alternate;
+}
+
+.ring.two {
+  width: 280px;
+  height: 280px;
+  border-color: #bda2ff;
+  animation-delay: .5s;
+}
+
+#count {
+  z-index: 1;
+  font-size: 90px;
+  font-weight: 700;
+  text-shadow: 0 0 25px #ff8fca;
+}
+
+.intro-caption {
+  z-index: 1;
+  color: #ffd5ed;
+  letter-spacing: 4px;
+  font-size: 12px;
+  text-align: center;
+  padding: 20px;
+}
+
+@keyframes pulse {
+  from { transform: scale(.88); opacity: .45; }
+  to { transform: scale(1.12); opacity: 1; }
+}
+
+#main {
+  display: none;
+  text-align: center;
+}
+
+.hero {
+  min-height: 100svh;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse at top, #4b245a, transparent 65%),
+    linear-gradient(160deg, #10091c, #21102e);
+}
+
+.eyebrow {
+  color: #ffc6e7;
+  letter-spacing: 4px;
+  font-size: 12px;
+}
+
+h1, h2 {
+  font-family: 'Pacifico', cursive;
+  font-weight: 400;
+}
+
+h1 {
+  color: #ffb4dd;
+  font-size: clamp(38px, 8vw, 76px);
+  line-height: 1.35;
+  text-shadow: 0 0 25px #ff62bd;
+  margin: 20px 0;
+}
+
+.subtitle {
+  max-width: 500px;
+  color: #e9d9f5;
+  line-height: 1.9;
+}
+
+.cake {
+  font-size: 100px;
+  margin: 15px;
+  animation: bounce 2s infinite;
+  filter: drop-shadow(0 0 20px #ff78bd);
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-15px) rotate(3deg); }
+}
+
+.glow-button {
+  margin-top: 22px;
+  padding: 14px 25px;
+  border: 1px solid #ffb4dd;
+  border-radius: 50px;
+  color: white;
+  background: #d74798;
+  box-shadow: 0 0 20px #e65cae;
+  transition: .3s;
+}
+
+.glow-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px #ff8fca;
+}
+
+section.content {
+  padding: 85px 20px;
+  background: linear-gradient(#21102e, #10091c);
+}
+
+h2 {
+  color: #ffb4dd;
+  font-size: clamp(30px, 6vw, 45px);
+}
+
+.letter {
+  max-width: 650px;
+  margin: 25px auto;
+  padding: 30px;
+  text-align: left;
+  line-height: 2;
+  border: 1px solid #75476f;
+  border-radius: 22px;
+  background: #ffffff09;
+  box-shadow: 0 0 30px #c34e9b12;
+}
+
+.signature {
+  color: #ffb4dd;
+  font-family: 'Pacifico', cursive;
+  font-size: 23px;
+}
+
+
+.gallery {
+  width: 340px;
+  max-width: 95%;
+  margin: 50px auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 7px;
+  justify-items: center;
+  align-items: center;
+}
+
+.photo {
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 2px solid #ff9cdd;
+  box-shadow: 0 0 12px #ff65c9;
+  animation: float 2.5s ease-in-out infinite alternate;
+}
+
+/* Bentuk hati menggunakan posisi setiap foto */
+.photo:nth-child(1) { grid-area: 1 / 2; }
+.photo:nth-child(2) { grid-area: 1 / 3; }
+.photo:nth-child(3) { grid-area: 1 / 4; }
+
+.photo:nth-child(4) { grid-area: 2 / 1; }
+.photo:nth-child(5) { grid-area: 2 / 2; }
+.photo:nth-child(6) { grid-area: 2 / 3; }
+.photo:nth-child(7) { grid-area: 2 / 4; }
+.photo:nth-child(8) { grid-area: 2 / 5; }
+
+.photo:nth-child(9) {
+  grid-area: 3 / 2 / span 1 / span 3;
+  width: 70%;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+@keyframes float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-7px); }
+}
+
+@media (max-width: 400px) {
+  .gallery {
+    width: 300px;
+    gap: 5px;
+  }
+}
+
+
+.photo:nth-child(even) {
+  animation-delay: -1.5s;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .4s;
+}
+
+.photo:hover img {
+  transform: scale(1.12);
+}
+
+@keyframes float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-9px); }
+}
+
+.heart {
+  position: fixed;
+  z-index: 5;
+  bottom: -30px;
+  pointer-events: none;
+  animation: rise linear forwards;
+}
+
+@keyframes rise {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+footer {
+  padding: 40px 15px 60px;
+  color: #eac7e7;
+}
+
+@media (max-width: 500px) {
+  .gallery { gap: 7px; }
+  .photo { border-radius: 10px; }
+  .letter { padding: 22px; }
+}
+</style>
+
+
+<style>
+#intro {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, #382044, #10091c 70%);
+}
+
+
+.neon-lines {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  border: 2px dashed #ff4fc8;
+  border-radius: 50%;
+  box-shadow: 0 0 15px #ff4fc8;
+  transform: translate(-50%, -50%);
+  animation: spin 4s linear infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.neon-lines.second {
+  width: 340px;
+  height: 340px;
+  border: 2px dotted #b76aff;
+  box-shadow: 0 0 18px #b76aff;
+  animation: spin 7s linear infinite reverse;
+}
+
+@keyframes spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+#intro .ring,
+#intro .ring.two {
+  z-index: 1;
+}
+
+#count,
+.intro-caption {
+  z-index: 2;
+}
+
+#matrix {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+#intro .ring,
+#intro .ring.two,
+#intro #count,
+#intro .intro-caption {
+  z-index: 2;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="intro">
+  <canvas id="matrix"></canvas>
+  <div class="neon-lines"></div>
+  <div class="neon-lines second"></div>
+  <div class="ring"></div>
+  <div class="ring two"></div>
+  <div id="count">3</div>
+  <div class="intro-caption">
+    SOMETHING SPECIAL IS WAITING FOR YOU ♡
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="hero">
+    <div class="eyebrow">A LITTLE SURPRISE FOR YOU ✦</div>
+
+    <h1>Happy Birthday,<br>Yu Xia! 🎂</h1>
+
+    <p class="subtitle">
+      Today is all about you. I hope this little website
+      makes you smile, even just a little. 💗
+    </p>
+
+    <div class="cake">🎂</div>
+
+    <p>Make a wish and blow the candles! ✨</p>
+
+    <button class="glow-button" onclick="celebrate()">
+      Make a Wish 🎉
+    </button>
+
+    <button class="glow-button" onclick="document.getElementById('letter').scrollIntoView({behavior:'smooth'})">
+      Open Your Letter 💌
+    </button>
+  </header>
+
+  <section class="content" id="letter">
+    <h2>A Little Letter For You 💌</h2>
+
+    <article class="letter">
+      <p>Dear Yu Xia, ♡</p>
+
+      <p>
+        Happy birthday! 🎂💗
+        I hope your new age brings you lots of happiness,
+        good health, peaceful days, and beautiful memories.
+      </p>
+
+      <p>
+        Even though we may be far apart, I'm glad that
+        our paths crossed. Thank you for being part of
+        my days and for all the little moments we've shared.
+      </p>
+
+      <p>
+        I hope you keep smiling, keep chasing your dreams,
+        and never forget that you deserve good things in life.
+        May this year be kinder to you and bring you closer
+        to everything you wish for.
+      </p>
+
+      <p>
+        Enjoy your special day, birthday boy!
+        Don't forget to eat something delicious. Hehe. ♡
+      </p>
+
+      <p>Happy birthday once again! 🎀</p>
+
+      <p class="signature">With love, ♡</p>
+    </article>
+  </section>
+
+  <section class="content" id="memories">
+    <h2>Little Memories ♡</h2>
+
+    <p class="subtitle">
+      A tiny collection of moments, just for you.
+    </p>
+
+    <div class="gallery" id="gallery"></div>
+
+    <p class="subtitle">
+      Different places, different days, but still
+      precious memories. 🌷
+    </p>
+  </section>
+
+  <footer>
+    <div style="font-size:40px">💗 ✨ 🎂 ✨ 💗</div>
+    <h2>Stay Happy, Yu Xia!</h2>
+    <p>Made with a little love, just for you ♡</p>
+    <p>🌙 生日快乐！</p>
+  </footer>
+
+</main>
+
+<audio id="music" loop>
+  <source src="music/birthday.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const gallery = document.getElementById('gallery');
+
+// Add your photos in the images folder.
+// Example: images/yu1.jpg, images/yu2.jpg, etc.
+for (let i = 1; i <= 9; i++) {
+  const photo = document.createElement('div');
+  photo.className = 'photo';
+
+  const img = document.createElement('img');
+  img.src = `images/yu${i}.jpg`;
+  img.alt = `Memory ${i}`;
+  img.loading = 'lazy';
+
+  img.onerror = () => {
+    photo.style.display = 'none';
+  };
+
+  photo.appendChild(img);
+  gallery.appendChild(photo);
+}
+
+const intro = document.getElementById('intro');
+const main = document.getElementById('main');
+const count = document.getElementById('count');
+
+let number = 3;
+
+const countdown = setInterval(() => {
+  number--;
+
+  if (number > 0) {
+    count.textContent = number;
+  } else {
+    clearInterval(countdown);
+    count.textContent = '♡';
+
+    setTimeout(() => {
+      intro.classList.add('hide');
+      main.style.display = 'block';
+      window.scrollTo(0, 0);
+      startHearts();
+    }, 600);
+  }
+}, 1000);
+
+function celebrate() {
+  for (let i = 0; i < 35; i++) {
+    setTimeout(createHeart, i * 60);
+  }
+
+  const music = document.getElementById('music');
+  music.play().catch(() => {
+    console.log('Music can be started after clicking again.');
+  });
+}
+
+function createHeart() {
+  const heart = document.createElement('div');
+  heart.className = 'heart';
+
+  const symbols = ['💗', '💕', '💖', '✨', '🌸'];
+  heart.textContent = symbols[
+    Math.floor(Math.random() * symbols.length)
+  ];
+
+  heart.style.left = Math.random() * 100 + 'vw';
+  heart.style.fontSize = (14 + Math.random() * 22) + 'px';
+  heart.style.animationDuration = (4 + Math.random() * 5) + 's';
+
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 9000);
+}
+
+function startHearts() {
+  setInterval(() => {
+    if (Math.random() > 0.35) createHeart();
+  }, 650);
+}
+
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+
+let drops = [];
+
+function resizeMatrix() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const columns = Math.floor(canvas.width / 18);
+  drops = Array(columns).fill(1);
+}
+
+function drawMatrix() {
+  ctx.fillStyle = "rgba(15, 7, 25, 0.15)";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.font = "15px monospace";
+
+  for (let i = 0; i < drops.length; i++) {
+    const char = Math.random() > 0.5 ? "♡" : "1";
+    const x = i * 18;
+    const y = drops[i] * 18;
+
+    ctx.fillStyle = Math.random() > 0.5
+      ? "#ff70d5"
+      : "#b76aff";
+
+    ctx.shadowBlur = 8;
+    ctx.shadowColor = "#ff4fc8";
+    ctx.fillText(char, x, y);
+    ctx.shadowBlur = 0;
+
+    if (y > canvas.height && Math.random() > 0.975) {
+      drops[i] = 0;
+    }
+
+    drops[i]++;
+  }
+}
+
+resizeMatrix();
+window.addEventListener("resize", resizeMatrix);
+setInterval(drawMatrix, 45);
+
+</script>
+
+</body>
+</html>
